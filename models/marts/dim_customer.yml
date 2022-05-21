@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_sk
+        description: The primary key of the customer generated with row_number
+        tests:
+          - unique
+          - not_null
