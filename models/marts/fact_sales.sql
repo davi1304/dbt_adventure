@@ -48,7 +48,8 @@
 
     orders_with_sk as (
         select
-        orders.salesorderid as order_id
+          row_number() over (order by orders.salesorderid) as sales_sk
+        , orders.salesorderid as order_id
         , orders.orderdate as order_date
         , orders.status as status
         , salesorderdatail.orderqty as order_qty
@@ -73,7 +74,8 @@
 
     final as (
         select
-        order_id
+        sales_sk
+        , order_id
         , order_date
         , status
         , order_qty
