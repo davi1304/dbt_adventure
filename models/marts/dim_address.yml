@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_address
+    description: Address dimension
+    columns:
+      - name: address_sk
+        description: The primary key of the address generated with row_number
+        tests:
+          - unique
+          - not_null

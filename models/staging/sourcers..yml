@@ -2,16 +2,125 @@ version: 2
 
 sources:
   - name: Adventureworks
+    description: Fictitious bicycle company database.
+      
     tables:
       - name: person_address
+        description: >
+          Street address information.
+        columns:
+          - name: addressid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
       - name: person_countryregion
-      - name: person_person
+        description: >
+          Lookup table containing the ISO standard codes for countries and regions.
+        columns:
+          - name: countryregioncode
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
       - name: person_stateprovince
-      - name: production_product
-      - name: sales_creditcard
-      - name: sales_salesorderdetail
-      - name: sales_salesorderheader
-      - name: sales_salesreason
-      - name: sales_salesorderheadersalesreason
+        description: >
+          State and province lookup table.
+        columns:
+          - name: stateprovinceid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
+      - name: person_person
+        description: >
+          Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts.
+        columns:
+          - name: bussinessentityid
+            description: Primary Key from Bussiness Entity
+            testes:
+              - not null
+
       - name: sales_customer
+        description: >
+          Current customer information.
+        columns:
+          - name: customerid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
+      - name: production_product
+        description: >
+          Products sold or used in the manfacturing of sold products.
+        columns:
+          - name: productid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
       - name: sales_specialofferproduct
+        description: >
+          Cross-reference table mapping products to special offer discounts.
+        columns:
+          - name: specialofferid
+            description: Primary Key from Special Offer
+            testes:
+              - not null
+
+      - name: sales_creditcard
+        description: >
+          Customer credit card information.
+        columns:
+          - name: creditcardid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+      
+      - name: sales_salesorderheader
+        description: >
+          General sales order information.
+        columns:
+          - name: salesorderid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
+      - name: sales_salesorderdetail
+        description: >
+          Individual products associated with a specific sales order. See SalesOrderHeader.
+        columns:
+          - name: salesorderdetailid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
+      - name: sales_salesorderheadersalesreason
+        description: >
+          Cross-reference table mapping sales orders to sales reason codes.
+        columns:
+          - name: salesorderid
+            description: Primary Key from Sales Order
+            testes:
+              - not null
+
+      - name: sales_salesreason
+        description: >
+          Lookup table of customer purchase reasons.
+        columns:
+          - name: salesreasonid
+            description: Primary Key
+            testes:
+              - unique
+              - not null
+
+      
+  
