@@ -3,9 +3,3 @@ version: 2
 models:
   - name: fact_sales
     description: Sales fact
-    columns:
-      - name: sales_sk
-        description: The primary key of the sales generated with row_number
-        tests:
-          - unique
-          - not_null
